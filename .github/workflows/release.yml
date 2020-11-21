@@ -1,0 +1,23 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: 'master'
+          token: ${{secrets.GITHUB_TOKEN}}
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: git config --global user.email "<>"
+      - run: git config --global user.name "Github Action Bot"
+      - run: npm run ci:release
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
