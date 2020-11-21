@@ -1,0 +1,25 @@
+{
+  "git": {
+    "push": true,
+    "requireCommits": true,
+    "requireCleanWorkingDir": true,
+    "changelog": "npx auto-changelog --stdout --commit-limit false --unreleased --template https://raw.githubusercontent.com/release-it/release-it/master/templates/changelog-compact.hbs",
+    "commitMessage": "release: v${version}",
+    "pushRepo": "https://github.com/marcusmourao/mm-lite.git"
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": "angular",
+      "infile": "CHANGELOG.md"
+    }
+  },
+  "github": {
+    "release": true
+  },
+  "npm": {
+    "publish": false
+  },
+  "hooks": {
+    "after:bump": "npx auto-changelog -p"
+  }
+}
