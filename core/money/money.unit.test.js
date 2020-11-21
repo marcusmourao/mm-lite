@@ -1,4 +1,4 @@
-import Money from './Money';
+import Money from '.';
 
 describe('Money', () => {
   describe('integer flow', () => {
