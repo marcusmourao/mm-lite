@@ -4,4 +4,4 @@ module.exports = {
   rules: {
     'type-enum': [2, 'always', ['chore', 'feat', 'fix', 'release']],
   },
-}
+};

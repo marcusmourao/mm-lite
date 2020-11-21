@@ -25,33 +25,31 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "normalize.css": "^8.0.1",
     "nuxt": "^2.14.6"
   },
   "devDependencies": {
+    "@commitlint/cli": "^9.1.2",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@commitlint/format": "^9.1.2",
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/eslint-module": "^2.0.0",
     "@nuxtjs/stylelint-module": "^4.0.0",
+    "@release-it/conventional-changelog": "^2.0.0",
     "@vue/test-utils": "^1.1.0",
+    "auto-changelog": "^2.2.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.5.0",
     "eslint": "^7.10.0",
-    "eslint-config-prettier": "^6.12.0",
+    "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-nuxt": "^1.0.0",
-    "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.3.0",
     "jest": "^26.5.0",
     "lint-staged": "^10.4.0",
-    "prettier": "^2.1.2",
+    "release-it": "^13.6.8",
     "stylelint": "^13.7.2",
-    "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^20.0.0",
-    "vue-jest": "^3.0.4",
-    "@commitlint/cli": "^9.1.2",
-    "@commitlint/config-conventional": "^11.0.0",
-    "@commitlint/format": "^9.1.2",
-    "@release-it/conventional-changelog": "^2.0.0",
-    "auto-changelog": "^2.2.1",
-    "release-it": "^13.6.8"
+    "vue-jest": "^3.0.4"
   }
 }
