@@ -1,6 +1,6 @@
 {
   "name": "mm-lite",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "dev": "HOST=0.0.0.0 nuxt",
     "build": "nuxt build",
