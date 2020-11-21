@@ -2,14 +2,16 @@
   "name": "mm-lite",
   "version": "0.0.0",
   "scripts": {
-    "dev": "nuxt",
+    "dev": "HOST=0.0.0.0 nuxt",
     "build": "nuxt build",
-    "start": "nuxt start",
+    "start": "HOST=0.0.0.0 nuxt start",
     "generate": "nuxt generate",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint:style": "stylelint **/*.{vue,css} --ignore-path .gitignore",
     "lint": "npm run lint:js && npm run lint:style",
-    "test": "jest"
+    "test": "jest",
+    "release": "release-it --ci",
+    "release:preview": "release-it --ci --dry-run"
   },
   "lint-staged": {
     "*.{js,vue}": "eslint",
@@ -17,7 +19,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "dependencies": {
@@ -43,6 +46,12 @@
     "stylelint": "^13.7.2",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^20.0.0",
-    "vue-jest": "^3.0.4"
+    "vue-jest": "^3.0.4",
+    "@commitlint/cli": "^9.1.2",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@commitlint/format": "^9.1.2",
+    "@release-it/conventional-changelog": "^2.0.0",
+    "auto-changelog": "^2.2.1",
+    "release-it": "^13.6.8"
   }
 }
