@@ -1,0 +1,5 @@
+.mm-fetch-content.mm-fetch-content--loading {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
