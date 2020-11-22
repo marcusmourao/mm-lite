@@ -1,0 +1,24 @@
+@import "../../assets/core/variables/colors.css";
+@import "../../assets/core/variables/fonts.css";
+@import "../../assets/core/variables/padding.css";
+@import "../../assets/core/variables/borders.css";
+
+.mm-input {
+  font-family: var(--mm-font-family--primary);
+  font-size: var(--mm-font-size--body);
+  border: 2px solid var(--mm-color--grey-medium);
+  border-radius: var(--mm-border-radius--large);
+  color: var(--mm-color--body-text);
+  padding: var(--mm-padding--small) var(--mm-padding--large);
+  display: flex;
+  width: 100%;
+  outline: none;
+  &:active,&:focus,&:target {
+    caret-color: var(--mm-color--grey-medium);;
+    border-color: var(--mm-color--grey-medium);;
+  }
+}
+
+.mm-field--invalid .mm-input {
+  border-color: var(--mm-color--error);
+}
