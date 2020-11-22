@@ -12,6 +12,11 @@ export async function getConsultsTotals() {
   };
 }
 
+export async function getTotalNumberOfConsults() {
+  const { available, used } = await getConsultsTotals();
+  return available + used;
+}
+
 export async function addConsults(numberOfConsults) {
   return mutations.addConsults(numberOfConsults);
 }

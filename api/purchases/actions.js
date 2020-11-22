@@ -20,7 +20,7 @@ export async function purchaseItem({
 }) {
   try {
     const product = await getProductById(productId);
-    const purchaseTotalPrice = product.calculatePurchasePrice(numberOfItems);
+    const purchaseTotalPrice = await product.calculatePurchasePrice(numberOfItems);
     return mutations.createNewPurchase({
       productInfo: product.getInfo(),
       customerInfo,
