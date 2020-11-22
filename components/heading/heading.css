@@ -1,0 +1,20 @@
+@import "../../assets/core/variables/fonts.css";
+@import "../../assets/core/variables/colors.css";
+
+.mm-heading {
+  margin: 0;
+  padding: 0;
+  font-family: var(--mm-font-family--primary);
+  line-height: 1.5;
+  color: var(--mm-color--extra-dark);
+
+  &.mm-heading--hero {
+    font-size: var(--mm-font-size--hero);
+    font-weight: var(--mm-font-weight--bold);
+  }
+
+  &.mm-heading--title {
+    font-size: var(--mm-font-size--title);
+    font-weight: var(--mm-font-weight--medium);
+   }
+}
