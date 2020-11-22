@@ -20,7 +20,7 @@ const getExpectedPurchaseMock = () => ({
     issuer: 'issuer mock',
   },
   productInfo: 'CONSULT',
-  value: 24,
+  value: 9,
 });
 
 describe('purchases::actions', () => {
@@ -35,7 +35,7 @@ describe('purchases::actions', () => {
       productId: getProductIdMock(),
     });
 
-    expect(purchasePrice).toBe(24);
+    expect(purchasePrice).toBe(9);
   });
 
   it('should purchase an item', async () => {
