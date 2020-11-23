@@ -1,28 +1,49 @@
 import { mount } from '@vue/test-utils';
-import MmParagraph from '.';
+import MmNumberHighlight from '.';
 
-const getParagraphContentMock = () => 'Mock paragraph content';
+const getNumberHighlightValueMock = () => 10;
 
-function mountComponent(content) {
-  return mount(MmParagraph, {
-    slots: {
-      default: content,
+function mountComponent({ value, theme }) {
+  return mount(MmNumberHighlight, {
+    propsData: {
+      value,
+      theme,
     },
   });
 }
 
-describe('MmParagraph', () => {
+describe('MmNumberHighlight', () => {
   it('should component has expected css class', () => {
-    const wrapper = mountComponent(getParagraphContentMock());
+    const value = getNumberHighlightValueMock();
+    const wrapper = mountComponent({ value });
 
-    expect(wrapper.classes()).toContain('mm-paragraph');
+    expect(wrapper.classes()).toContain('mm-number-highlight');
   });
 
-  it('should render paragraph content', () => {
-    const wrapper = mountComponent(getParagraphContentMock());
+  it('should render number highlight value', () => {
+    const value = getNumberHighlightValueMock();
+    const wrapper = mountComponent({ value });
 
-    const paragraph = wrapper.find('p');
+    const numberHighlight = wrapper.find('span');
 
-    expect(paragraph.text()).toBe(getParagraphContentMock());
+    expect(numberHighlight.text()).toBe(`${getNumberHighlightValueMock()}`);
+  });
+
+  it('should render number highlight with success theme', () => {
+    const value = getNumberHighlightValueMock();
+    const wrapper = mountComponent({ value, theme: 'success' });
+
+    const numberHighlight = wrapper.find('span');
+
+    expect(numberHighlight.classes()).toContain('mm-number-highlight--success');
+  });
+
+  it('should render number highlight with alert theme', () => {
+    const value = getNumberHighlightValueMock();
+    const wrapper = mountComponent({ value, theme: 'alert' });
+
+    const numberHighlight = wrapper.find('span');
+
+    expect(numberHighlight.classes()).toContain('mm-number-highlight--alert');
   });
 });
