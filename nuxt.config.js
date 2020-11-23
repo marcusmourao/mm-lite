@@ -58,6 +58,7 @@ export default {
         'postcss-nested': {},
         'postcss-import': {},
         'postcss-css-variables': {},
+        'postcss-for': {},
       },
       preset: {
         // Change the postcss-preset-env settings
