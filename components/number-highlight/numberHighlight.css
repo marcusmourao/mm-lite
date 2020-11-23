@@ -1,0 +1,30 @@
+@import "../../assets/core/variables/fonts.css";
+@import "../../assets/core/variables/colors.css";
+
+.mm-number-highlight {
+  margin: 0;
+  padding: 0;
+  font-family: var(--mm-font-family--secondary);
+  font-size: var(--mm-font-size--hero);
+  font-weight: var(--mm-font-weight--bold);
+  line-height: 1;
+  color: var(--mm-color--primary);
+}
+
+.mm-number-highlight {
+  margin: 0;
+  padding: 0;
+  font-family: var(--mm-font-family--secondary);
+  font-size: var(--mm-font-size--hero);
+  font-weight: var(--mm-font-weight--bold);
+  line-height: 1;
+  color: var(--mm-color--primary);
+}
+
+.mm-number-highlight--success {
+  color: var(--mm-color--success);
+}
+
+.mm-number-highlight--alert {
+  color: var(--mm-color--alert);
+}
