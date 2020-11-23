@@ -7,6 +7,7 @@
   font-family: var(--mm-font-family--primary);
   line-height: 1.5;
   color: var(--mm-color--extra-dark);
+  display: inline-block;
 
   &.mm-heading--hero {
     font-size: var(--mm-font-size--hero);

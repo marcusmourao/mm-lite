@@ -3,6 +3,7 @@
 .mm-row {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .mm-row +.mm-row {
