@@ -1,0 +1,10 @@
+.mm-divider {
+  width: 100%;
+  margin: 10px 0;
+  border-color: rgba(0,0,0,.12);
+  border-width: 1px 0 0;
+
+  &.mm-divider--dotted {
+    border-style: dotted;
+  }
+}
