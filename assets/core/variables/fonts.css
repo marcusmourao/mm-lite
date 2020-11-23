@@ -1,0 +1,13 @@
+:root {
+  --mm-font-family--primary: 'Rubik', sans-serif;
+  --mm-font-family--secondary: 'Roboto', sans-serif;
+  --mm-font-size--hero: 42px;
+  --mm-font-size--title: 22px;
+  --mm-font-size--body: 18px;
+  --mm-font-size-cta: 14px;
+
+  --mm-font-weight--bold: 700;
+  --mm-font-weight--medium: 500;
+  --mm-font-weight--regular: 400;
+  --mm-font-weight--light: 300;
+}

@@ -1,0 +1,77 @@
+@import "../../assets/core/variables/breakpoints.css";
+@import "../../assets/core/variables/colors.css";
+
+:root {
+  --mm-column-width: calc(100% / 12);
+}
+
+.mm-col {
+  display: flex;
+}
+
+/*.b-$i { width: $(i)px; }*/
+
+
+
+@media only screen and (max-width: 359px) {
+  @for $i from 1 to 12 {
+    .mm-col.mm-col--xs-$(i) {
+       width: calc(var(--mm-column-width) * $(i));
+     }
+    .mm-col.mm-col--offset-xs-$(i) {
+      margin-left: calc(var(--mm-column-width) * $(i));
+    }
+  }
+}
+
+@media only screen and (min-width: 360px) and (max-width: 600px) {
+  @for $i from 1 to 12 {
+    .mm-col.mm-col--sm-$(i) {
+      width: calc(var(--mm-column-width) * $(i));
+    }
+    .mm-col.mm-col--offset-sm-$(i) {
+      margin-left: calc(var(--mm-column-width) * $(i));
+    }
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 992px) {
+  @for $i from 1 to 12 {
+    .mm-col.mm-col--md-$(i) {
+      width: calc(var(--mm-column-width) * $(i));
+    }
+    .mm-col.mm-col--offset-md-$(i) {
+      margin-left: calc(var(--mm-column-width) * $(i));
+    }
+  }
+}
+
+@media only screen and (min-width: 993px) and (max-width: 1200px) {
+  @for $i from 1 to 12 {
+    .mm-col.mm-col--lg-$(i) {
+      width: calc(var(--mm-column-width) * $(i));
+    }
+    .mm-col.mm-col--offset-lg-$(i) {
+      margin-left: calc(var(--mm-column-width) * $(i));
+    }
+  }
+}
+
+@media only screen and (min-width: 1201px) {
+  @for $i from 1 to 12 {
+    .mm-col.mm-col--xl-$(i) {
+      width: calc(var(--mm-column-width) * $(i));
+    }
+    .mm-col.mm-col--offset-xl-$(i) {
+      margin-left: calc(var(--mm-column-width) * $(i));
+    }
+  }
+}
+
+.mm-col--align-right {
+  justify-content: right;
+}
+
+.mm-col--align-center {
+  justify-content: center;
+}

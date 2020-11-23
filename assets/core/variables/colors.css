@@ -1,0 +1,14 @@
+:root {
+  --mm-color--primary: #4076fa;
+  --mm-color--success: #00d233;
+  --mm-color--error: #f15025;
+  --mm-color--alert: #e8c547;
+  --mm-color--dark: #001634;
+  --mm-color--extra-dark: #091223;
+  --mm-color--body-text: #a7a7a7;
+  --mm-color--lightest: #ffffff;
+  --mm-color--grey-dark: #a7a7a7;
+  --mm-color--grey-medium: #bfbfbf;
+  --mm-color--grey-light: #d8d8d8;
+  --mm-color--grey-lightest: #f3f3f3;
+}

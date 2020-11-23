@@ -1,0 +1,86 @@
+@import "../../assets/core/variables/colors.css";
+@import "../../assets/core/variables/fonts.css";
+@import "../../assets/core/variables/padding.css";
+
+:root {
+  --mm-button--disabled-opacity: 0.5;
+  --mm-button--hover-opacity: 0.7;
+  --mm-button--active-opacity: 0.9;
+  --mm-button--height: 40px;
+  --mm-button--boder-radius: 24px;
+}
+
+.mm-button {
+  text-transform: uppercase;
+  font-family: var(--mm-font-family--primary);
+  font-size: var(--mm-font-size-cta);
+  font-weight: var(--mm-font-weight--bold);
+  line-height: 1;
+  padding: 0 var(--mm-padding--large);
+  height: var(--mm-button--height);
+  border-radius: var(--mm-button--boder-radius);
+  border: 2px solid var(--mm-color--primary);
+  background-color: var(--mm-color--lightest);
+  color: var(--mm-color--primary);
+  margin: 0;
+  outline: none;
+  cursor: pointer;
+
+  &:active {
+    opacity: var(--mm-button--active-opacity);
+  }
+
+  &:target {
+    opacity: var(--mm-button--active-opacity);
+  }
+
+  &:focus{
+    opacity: var(--mm-button--active-opacity);
+  }
+
+  &:hover {
+    opacity: var(--mm-button--hover-opacity);
+  }
+
+  &:disabled {
+    opacity: var(--mm-button--disabled-opacity);
+    pointer-events: none;
+    cursor: default;
+  }
+}
+
+.mm-button--primary {
+  border-color: var(--mm-color--primary);
+  background-color: var(--mm-color--primary);
+  color: var(--mm-color--lightest);
+}
+
+.mm-button--success {
+  border-color: var(--mm-color--success);
+  background-color: var(--mm-color--success);
+  color: var(--mm-color--lightest);
+}
+
+.mm-button--error {
+  border-color: var(--mm-color--error);
+  background-color: var(--mm-color--error);
+  color: var(--mm-color--lightest);
+}
+
+.mm-button--alert {
+  border-color: var(--mm-color--alert);
+  background-color: var(--mm-color--alert);
+  color: var(--mm-color--lightest);
+}
+
+.mm-button--dark {
+  border-color: var(--mm-color--dark);
+  background-color: var(--mm-color--dark);
+  color: var(--mm-color--lightest);
+}
+
+.mm-button--extra-dark {
+  border-color: var(--mm-color--extra-dark);
+  background-color: var(--mm-color--extra-dark);
+  color: var(--mm-color--lightest);
+}

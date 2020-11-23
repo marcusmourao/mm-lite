@@ -1,0 +1,11 @@
+:root {
+  --mm-breakpoint--max-width-x-small: 359px;
+  --mm-breakpoint--max-width-small: 600px;
+  --mm-breakpoint--max-width-medium: 992px;
+  --mm-breakpoint--max-width-large: 1200px;
+
+  --mm-breakpoint--min-width-small: 360px;
+  --mm-breakpoint--min-width-medium: 601px;
+  --mm-breakpoint--min-width-large: 993px;
+  --mm-breakpoint--min-width-x-large: 1201px;
+}
