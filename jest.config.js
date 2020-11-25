@@ -16,10 +16,14 @@ module.exports = {
     '<rootDir>/pages/**/*.{vue,js}',
     '<rootDir>/application/**/*.{vue,js}',
     '<rootDir>/core/**/*.js',
-    '<rootDir>/layouts/**/*.{vue,js}',
   ],
   coverageDirectory: 'coverage',
-  coveragePathIgnorePatterns: ['/node_modules/'],
+  coveragePathIgnorePatterns: [
+    '/node_modules/',
+    '/application/modules/.*-module-web/index.js',
+    '/application/modules/.*-components/index.js',
+    '/application/modules/.*-lib/index.js',
+  ],
   coverageReporters: ['json', 'text', 'lcov', 'clover'],
   coverageThreshold: {
     global: {

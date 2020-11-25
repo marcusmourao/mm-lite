@@ -1,5 +1,5 @@
 <template>
-  <hr class="mm-divider" :class="classes" />
+  <hr class="mm-divider" :class="classes">
 </template>
 
 <script>
@@ -8,8 +8,9 @@ export default {
   props: {
     theme: {
       type: String,
+      default: null,
       validator(theme) {
-        return ['dotted'].includes(theme);
+        return !theme || ['dotted'].includes(theme);
       },
     },
   },

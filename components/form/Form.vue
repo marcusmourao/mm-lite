@@ -71,5 +71,5 @@ export default {
 </script>
 
 <style lang="css" scoped>
-@import "form.css";
+@import "./form.css";
 </style>

@@ -1,0 +1,9 @@
+@import "../../assets/core/variables/fonts.css";
+@import "../../assets/core/variables/colors.css";
+
+.mm-text {
+  font-size: var(--mm-font-size--body);
+  font-family: var(--mm-font-family--secondary);
+  line-height: 1;
+  color: var(--mm-color--body-text);
+}

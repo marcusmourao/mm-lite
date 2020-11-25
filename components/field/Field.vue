@@ -57,9 +57,7 @@ export default {
     },
   },
   created() {
-    if (this.formVm) {
-      this.formVm.registerField(this.$data);
-    }
+    this.formVm.registerField(this.$data);
   },
   methods: {
     setErrorMessage(message) {

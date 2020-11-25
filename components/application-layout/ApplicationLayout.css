@@ -1,5 +1,6 @@
 @import "../../assets/core/variables/colors.css";
 @import "../../assets/core/variables/fonts.css";
+@import "../../assets/core/variables/padding.css";
 
 .mm-application-layout {
   width: 100vw;
@@ -19,6 +20,16 @@
       font-size: var(--mm-font-size--title);
       font-weight: var(--mm-font-weight--medium);
       height: 100%;
+    }
+  }
+
+  >>> main {
+    padding: var(--mm-padding--large);
+  }
+
+  @media only screen and (min-width: 1201px ) {
+    >>> main {
+      margin: 0 auto
     }
   }
 
