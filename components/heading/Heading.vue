@@ -14,7 +14,7 @@ export default {
     type: {
       type: [String],
       required: true,
-      validator: (value) => ['hero', 'medium'].includes(value),
+      validator: (value) => ['hero', 'title'].includes(value),
     },
   },
   render(createElement, { props, children, data }) {

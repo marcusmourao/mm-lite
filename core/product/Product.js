@@ -1,5 +1,10 @@
 import Money from '../money';
 
+function getSumOfDiscounts(list) {
+  return list.reduce((discountTotal, currentItem) => new Money(discountTotal)
+    .add(currentItem.discountValue).getAmount(), 0);
+}
+
 class Product {
   constructor({ id, unitPrice, discountRules }) {
     this.id = id;
@@ -16,25 +21,36 @@ class Product {
   }
 
   async calculatePurchasePrice(numberOfUnits) {
-    const purchaseValue = new Money(this.unitPrice).multiply(numberOfUnits);
-    const discount = await this.calculateDiscount(numberOfUnits);
-    return purchaseValue
-      .subtract(discount)
+    const valueWithoutDiscount = new Money(this.unitPrice).multiply(numberOfUnits);
+    const listOfDiscounts = await this.calculateDiscount(numberOfUnits);
+    const totalOfDiscounts = getSumOfDiscounts(listOfDiscounts);
+    const purchaseValue = valueWithoutDiscount
+      .subtract(totalOfDiscounts)
       .getAmount();
+
+    return {
+      purchaseValue,
+      discounts: listOfDiscounts,
+    };
   }
 
   calculateDiscount(numberOfUnits) {
-    return this.discountRules.reduce(async (accumulator, currentDiscountRule) => {
-      const isApplicable = await currentDiscountRule.isApplicable(numberOfUnits);
-      if (isApplicable) {
+    return this.discountRules
+      .reduce(async (accumulator, currentDiscountRule) => {
         const accumulatorValue = await accumulator;
-        const discountValue = await currentDiscountRule.getDiscountValue(numberOfUnits);
-        return new Money(accumulatorValue)
-          .add(discountValue)
-          .getAmount();
-      }
-      return Promise.resolve(accumulator);
-    }, Promise.resolve(0));
+        const isApplicable = await currentDiscountRule.isApplicable(numberOfUnits);
+        if (isApplicable) {
+          const discount = await currentDiscountRule.getDiscountValue(numberOfUnits);
+          return [
+            ...accumulatorValue,
+            {
+              ...discount,
+              description: currentDiscountRule.description,
+            },
+          ];
+        }
+        return Promise.resolve([...accumulatorValue]);
+      }, Promise.resolve([]));
   }
 }
 

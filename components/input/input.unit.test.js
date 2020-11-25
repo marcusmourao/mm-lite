@@ -113,7 +113,7 @@ describe('mm-input', () => {
     await wrapper.vm.$nextTick();
     errorMessage = wrapper.find('.mm-field__error-message');
     expect(errorMessage.exists()).toBe(true);
-    expect(errorMessage.text()).toBe('Este campo é obrigatório.');
+    expect(errorMessage.text()).toBe('Este campo é obrigatório');
     wrapper.destroy();
   });
 
@@ -127,7 +127,7 @@ describe('mm-input', () => {
     await wrapper.vm.$nextTick();
     errorMessage = wrapper.find('.mm-field__error-message');
     expect(errorMessage.exists()).toBe(true);
-    expect(errorMessage.text()).toBe('Este campo é obrigatório.');
+    expect(errorMessage.text()).toBe('Este campo é obrigatório');
     wrapper.destroy();
   });
 

@@ -1,9 +1,19 @@
 @import "../../assets/core/variables/margin.css";
+@import "../../assets/core/variables/padding.css";
 
 .mm-row {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .mm-row {
+    flex-wrap: wrap;
+  }
+}
+.mm-row {
+  margin: calc(-1 * var(--mm-padding--small))
 }
 
 .mm-row +.mm-row {

@@ -1,7 +1,7 @@
-<template>
-  <h1>Hello World</h1>
-</template>
-
 <script>
-export default {};
+export default {
+  middleware({ redirect }) {
+    redirect({ name: 'ConsultsView' });
+  },
+};
 </script>

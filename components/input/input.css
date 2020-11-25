@@ -11,8 +11,10 @@
   color: var(--mm-color--body-text);
   padding: var(--mm-padding--small) var(--mm-padding--large);
   display: flex;
+  box-sizing: border-box;
   width: 100%;
   outline: none;
+  line-height: 1;
   &:active,&:focus,&:target {
     caret-color: var(--mm-color--grey-medium);;
     border-color: var(--mm-color--grey-medium);;

@@ -4,7 +4,8 @@ Dinero.globalLocale = 'pt-BR';
 Dinero.defaultCurrency = 'BRL';
 
 function convertValue(value) {
-  return Dinero({ amount: value * 100, precision: 2 });
+  const localValue = Math.round(value * 100);
+  return Dinero({ amount: localValue, precision: 2 });
 }
 
 class Money {
@@ -34,6 +35,14 @@ class Money {
 
   getAmount() {
     return (this.money.getAmount()) / 100;
+  }
+
+  toFormat({ withSymbol } = {}) {
+    const mask = withSymbol ? '$0,0.00' : '0,0.00';
+    return this.money.toFormat(mask)
+      .replace(/\./g, 'aux')
+      .replace(/,/g, '.')
+      .replace(/aux/g, ',');
   }
 }
 
