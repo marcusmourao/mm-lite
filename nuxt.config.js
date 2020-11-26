@@ -38,33 +38,32 @@ export default {
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
     extractCSS: true,
-    optimization: {
-      splitChunks: {
-        cacheGroups: {
-          styles: {
-            name: 'styles',
-            test: /\.(css|vue)$/,
-            chunks: 'all',
-            enforce: true,
-          },
-        },
-      },
-    },
+    // optimization: {
+    //   splitChunks: {
+    //     cacheGroups: {
+    //       styles: {
+    //         name: 'styles',
+    //         test: /\.(css|vue)$/,
+    //         chunks: 'all',
+    //         enforce: true,
+    //       },
+    //     },
+    //   },
+    // },
     postcss: {
       // Add plugin names as key and arguments as value
       // Install them before as dependencies with npm or yarn
       plugins: {
         // Disable a plugin by passing false as value
         'postcss-nested': {},
-        'postcss-import': {},
         'postcss-css-variables': {},
         'postcss-for': {},
       },
       preset: {
         // Change the postcss-preset-env settings
-        autoprefixer: {
-          grid: true,
-        },
+        // autoprefixer: {
+        //   grid: true,
+        // },
       },
     },
   },

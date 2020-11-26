@@ -1,0 +1,14 @@
+@import "../../assets/core/variables/borders.css";
+@import "../../assets/core/variables/padding.css";
+@import "../../assets/core/variables/colors.css";
+
+.mm-card {
+  padding: var(--mm-padding--large);
+  border: 2px solid var(--mm-color--grey-dark);
+  border-radius: var(--mm-border-radius--large);
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

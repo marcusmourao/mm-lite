@@ -6,6 +6,10 @@ export default {
   name: 'MmCol',
   functional: true,
   props: {
+    auto: {
+      type: Boolean,
+      default: false,
+    },
     xs: {
       type: [String, Number],
       default: NUMBER_OF_COLUMNS,
@@ -69,6 +73,7 @@ export default {
         [`mm-col--offset-lg-${props.offsetLg}`]: props.offsetLg,
         [`mm-col--offset-xl-${props.offsetXl}`]: props.offsetXl,
         [`mm-col--align-${props.align}`]: props.align,
+        'mm-col--auto': props.auto,
       },
       ...data,
     }, children);

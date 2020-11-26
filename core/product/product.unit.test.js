@@ -13,7 +13,10 @@ function getAsyncDiscountCalculationMock(numberOfItems) {
   const value = new Money(getDiscountPerUnitMock())
     .multiply(numberOfItems)
     .getAmount();
-  return Promise.resolve(value);
+  return Promise.resolve({
+    discountValue: value,
+    numberOfItemsWithDiscount: numberOfItems,
+  });
 }
 const getApplicableAsyncDiscountRuleMock = () => ({
   isApplicable: () => isApplicableAsync(true),
@@ -43,7 +46,7 @@ describe('Product', () => {
       discountRules: getEmptyDiscountRules(),
     });
 
-    expect(await product.calculateDiscount(getNumberOfUnitsMock())).toBe(0);
+    expect(await product.calculateDiscount(getNumberOfUnitsMock())).toEqual([]);
   });
 
   it('should calculate product discount when discount rules has async rules', async () => {
@@ -53,7 +56,10 @@ describe('Product', () => {
       discountRules: [getApplicableAsyncDiscountRuleMock()],
     });
 
-    expect(await product.calculateDiscount(getNumberOfUnitsMock())).toBe(15.52);
+    expect(await product.calculateDiscount(getNumberOfUnitsMock())).toEqual([{
+      discountValue: 15.52,
+      numberOfItemsWithDiscount: 97,
+    }]);
   });
 
   it('should calculate product discount when discount rules has async rules but it is not applicable', async () => {
@@ -63,7 +69,7 @@ describe('Product', () => {
       discountRules: [getNotApplicableAsyncDiscountRuleMock()],
     });
 
-    expect(await product.calculateDiscount(getNumberOfUnitsMock())).toBe(0);
+    expect(await product.calculateDiscount(getNumberOfUnitsMock())).toEqual([]);
   });
 
   it('should calculate purchase price when discount rules are an empty array', async () => {
@@ -73,7 +79,8 @@ describe('Product', () => {
       discountRules: getEmptyDiscountRules(),
     });
 
-    expect(await product.calculatePurchasePrice(getNumberOfUnitsMock())).toBe(23.28);
+    expect(await product.calculatePurchasePrice(getNumberOfUnitsMock()))
+      .toEqual({ discounts: [], purchaseValue: 23.28 });
   });
 
   it('should calculate purchase price when discount rules has async rules', async () => {
@@ -83,7 +90,10 @@ describe('Product', () => {
       discountRules: [getApplicableAsyncDiscountRuleMock()],
     });
 
-    expect(await product.calculatePurchasePrice(getNumberOfUnitsMock())).toBe(7.76);
+    expect(await product.calculatePurchasePrice(getNumberOfUnitsMock())).toEqual({
+      discounts: [{ discountValue: 15.52, numberOfItemsWithDiscount: 97 }],
+      purchaseValue: 7.76,
+    });
   });
 
   it('should calculate purchase price when discount rules has async rules but it is not applicable', async () => {
@@ -93,6 +103,7 @@ describe('Product', () => {
       discountRules: [getNotApplicableAsyncDiscountRuleMock()],
     });
 
-    expect(await product.calculatePurchasePrice(getNumberOfUnitsMock())).toBe(23.28);
+    expect(await product.calculatePurchasePrice(getNumberOfUnitsMock()))
+      .toEqual({ discounts: [], purchaseValue: 23.28 });
   });
 });

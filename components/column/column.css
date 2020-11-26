@@ -1,5 +1,6 @@
 @import "../../assets/core/variables/breakpoints.css";
 @import "../../assets/core/variables/colors.css";
+@import "../../assets/core/variables/padding.css";
 
 :root {
   --mm-column-width: calc(100% / 12);
@@ -7,6 +8,12 @@
 
 .mm-col {
   display: flex;
+  flex-wrap: wrap;
+  padding: var(--mm-padding--small);
+
+  &.mm-col--auto {
+    width: auto!important;
+  }
 }
 
 /*.b-$i { width: $(i)px; }*/
@@ -69,7 +76,7 @@
 }
 
 .mm-col--align-right {
-  justify-content: right;
+  justify-content: flex-end;
 }
 
 .mm-col--align-center {

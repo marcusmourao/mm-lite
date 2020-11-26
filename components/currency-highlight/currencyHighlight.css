@@ -1,0 +1,14 @@
+@import "../../assets/core/variables/fonts.css";
+@import "../../assets/core/variables/colors.css";
+@import "../../assets/core/variables/margin.css";
+
+.mm-currency-highlight {
+  margin-left: var(--mm-margin--medium);
+}
+
+.mm-currency-highlight__value {
+  font-size: var(--mm-font-size--title);
+  font-weight: var(--mm-font-weight--bold);
+  font-family: var(--mm-font-family--secondary);
+  line-height: 1;
+}

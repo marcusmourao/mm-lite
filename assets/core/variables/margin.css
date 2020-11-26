@@ -1,3 +1,5 @@
 :root {
-  --mm-margin--small: 5px;
+  --mm-margin--small: 8px;
+  --mm-margin--medium: 16px;
+  --mm-margin--large: 32px;
 }

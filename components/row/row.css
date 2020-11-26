@@ -1,0 +1,42 @@
+@import "../../assets/core/variables/margin.css";
+@import "../../assets/core/variables/padding.css";
+
+.mm-row {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+
+  &.mm-row--vertical-offset-small {
+    margin-top: var(--mm-margin--small)!important;
+  }
+
+  &.mm-row--vertical-offset-medium {
+    margin-top: var(--mm-margin--medium)!important;
+  }
+
+  &.mm-row--vertical-offset-large {
+    margin-top: var(--mm-margin--large)!important;
+  }
+
+  &.mm-row--justify-space-between {
+   justify-content: space-between;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .mm-row {
+    flex-wrap: wrap;
+  }
+
+  &.mm-row--justify-space-between {
+   justify-content: space-between;
+  }
+}
+
+.mm-row {
+  margin: calc(-1 * var(--mm-padding--small));
+}
+
+.mm-row +.mm-row {
+  margin-top: var(--mm-margin--small);
+}

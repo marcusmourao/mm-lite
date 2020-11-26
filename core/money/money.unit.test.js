@@ -79,6 +79,25 @@ describe('Money', () => {
 
       expect(money.getAmount()).toBe(1);
     });
+
+    it('should format currency', () => {
+      const money = new Money(2500);
+
+      expect(money.toFormat()).toBe('2.500,00');
+    });
+
+    it('should format currency with large number', () => {
+      const money = new Money(123456789);
+
+      expect(money.toFormat()).toBe('123.456.789,00');
+    });
+
+    it('should format currency with symbol ', () => {
+      const money = new Money(50);
+
+      expect(money.toFormat({ withSymbol: true })).toContain('R$');
+      expect(money.toFormat({ withSymbol: true })).toContain('50,00');
+    });
   });
 
   describe('float flow', () => {
@@ -157,6 +176,19 @@ describe('Money', () => {
         .divide(5);
 
       expect(money.getAmount()).toBe(0.01);
+    });
+
+    it('should format currency', () => {
+      const money = new Money(0.25);
+
+      expect(money.toFormat()).toBe('0,25');
+    });
+
+    it('should format currency with symbol ', () => {
+      const money = new Money(0.25);
+
+      expect(money.toFormat({ withSymbol: true })).toContain('R$');
+      expect(money.toFormat({ withSymbol: true })).toContain('0,25');
     });
   });
 });

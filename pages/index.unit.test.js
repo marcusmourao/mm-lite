@@ -1,14 +1,16 @@
-import { shallowMount } from '@vue/test-utils';
 import IndexPage from './index.vue';
 
-function shallowMountComponent() {
-  return shallowMount(IndexPage);
-}
+const getRedirectMock = () => jest.fn();
 
 describe('IndexPage', () => {
-  it('should render title as expected', () => {
-    const wrapper = shallowMountComponent();
+  describe('IndexPage::middleware', () => {
+    it('should page middleware redirects to ConsultsView', () => {
+      const redirect = getRedirectMock();
 
-    expect(wrapper.text()).toBe('Hello World');
+      IndexPage.middleware({ redirect });
+
+      expect(redirect).toHaveBeenCalledTimes(1);
+      expect(redirect).toHaveBeenCalledWith({ name: 'ConsultsView' });
+    });
   });
 });
