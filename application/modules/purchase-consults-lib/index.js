@@ -1,1 +1,1 @@
-export { purchaseConsults, calculateConsultsPurchasePrice } from './purchaseConsultsService';
+export { purchaseConsults, calculateConsultsPurchasePrice, getConsultProduct } from './purchaseConsultsService';

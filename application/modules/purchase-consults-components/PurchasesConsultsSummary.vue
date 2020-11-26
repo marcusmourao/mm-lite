@@ -25,7 +25,7 @@
             <mm-text>{{ numberOfConsults }}</mm-text>
           </mm-col>
           <mm-col align="right">
-            <mm-currency-highlight with-symbol :value="0.24" />
+            <mm-currency-highlight with-symbol :value="productUnitPrice" />
           </mm-col>
         </mm-row>
         <mm-divider v-if="purchaseSummary.discounts.length" />
@@ -52,7 +52,7 @@
             <mm-currency-highlight with-symbol :value="discount.discountValue" />
           </mm-col>
         </mm-row>
-        <mm-divider />
+        <mm-divider v-if="purchaseSummary.discounts.length" />
         <mm-row>
           <mm-col align="right">
             <mm-text>Total da compra: </mm-text>
@@ -60,6 +60,9 @@
           </mm-col>
         </mm-row>
       </template>
+      <mm-paragraph v-else>
+        Ops, algo deu errado ao calcular o preço da sua compra
+      </mm-paragraph>
     </mm-col>
   </mm-row>
 </template>
@@ -71,11 +74,13 @@ import MmHeading from '../../../components/heading';
 import MmDivider from '../../../components/divider';
 import MmText from '../../../components/text';
 import MmCurrencyHighlight from '../../../components/currency-highlight';
-import { calculateConsultsPurchasePrice } from '../purchase-consults-lib';
+import { calculateConsultsPurchasePrice, getConsultProduct } from '../purchase-consults-lib';
+import MmParagraph from '../../../components/paragraph';
 
 export default {
   name: 'PurchasesConsultsSummary',
   components: {
+    MmParagraph,
     MmCurrencyHighlight,
     MmText,
     MmDivider,
@@ -92,6 +97,7 @@ export default {
   data() {
     return {
       purchaseSummary: null,
+      productUnitPrice: null,
     };
   },
   watch: {
@@ -105,6 +111,11 @@ export default {
         });
       },
     },
+  },
+  mounted() {
+    getConsultProduct().then((product) => {
+      this.productUnitPrice = product.unitPrice;
+    });
   },
 };
 </script>
