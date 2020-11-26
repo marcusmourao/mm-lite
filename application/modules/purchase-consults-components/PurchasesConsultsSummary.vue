@@ -1,59 +1,67 @@
 <template>
-  <div>
-    <mm-row>
-      <mm-col>
-        <mm-heading type="title">
-          Resumo da compra
-        </mm-heading>
-      </mm-col>
-    </mm-row>
-    <template v-if="purchaseSummary">
+  <mm-row>
+    <mm-col>
       <mm-row>
         <mm-col>
-          <mm-text>Número de Consultas: {{ numberOfConsults }} </mm-text>
-        </mm-col>
-        <mm-col>
-          <mm-text>
-            Valor unitário da consulta:
-            <mm-currency-highlight with-symbol :value="0.24" />
-          </mm-text>
+          <mm-heading type="title">
+            Resumo da compra
+          </mm-heading>
         </mm-col>
       </mm-row>
-      <mm-divider v-if="purchaseSummary.discounts.length" />
-      <mm-row v-for="(discount, index) in purchaseSummary.discounts" :key="index">
-        <mm-col xs="12" sm="12" md="12" lg="6" xl="6">
-          <mm-text>Unidades com desconto: {{ discount.numberOfItemsWithDiscount }}</mm-text>
-        </mm-col>
-        <mm-col
-          xs="12"
-          sm="12"
-          md="12"
-          lg="6"
-          xl="6"
-        >
-          <mm-text>
-            Desconto total aplicado:
-            <mm-currency-highlight with-symbol :value="discount.discountValue" />
-          </mm-text>
-        </mm-col>
+      <template v-if="purchaseSummary">
         <mm-row>
           <mm-col>
-            <mm-text>{{ discount.description }}</mm-text>
+            <mm-text>Número de Consultas </mm-text>
+          </mm-col>
+          <mm-col align="right">
+            <mm-text>
+              Valor unitário da consulta
+            </mm-text>
           </mm-col>
         </mm-row>
-      </mm-row>
-      <mm-divider />
-      <mm-row>
-        <mm-col align="right">
-          <mm-text>Total:</mm-text>
-          <mm-currency-highlight with-symbol :value="purchaseSummary.purchaseValue" />
-        </mm-col>
-      </mm-row>
-    </template>
-    <mm-paragraph v-else>
-      Selecione a quantidade de consultas desejadas para ver o resumo da sua compra
-    </mm-paragraph>
-  </div>
+        <mm-divider />
+        <mm-row>
+          <mm-col>
+            <mm-text>{{ numberOfConsults }}</mm-text>
+          </mm-col>
+          <mm-col align="right">
+            <mm-currency-highlight with-symbol :value="0.24" />
+          </mm-col>
+        </mm-row>
+        <mm-divider v-if="purchaseSummary.discounts.length" />
+        <mm-row v-if="purchaseSummary.discounts.length">
+          <mm-col align="center">
+            <mm-text>Desconto</mm-text>
+          </mm-col>
+          <mm-col align="center">
+            <mm-text>Número de unidades</mm-text>
+          </mm-col>
+          <mm-col align="right">
+            <mm-text>Valor do desconto</mm-text>
+          </mm-col>
+        </mm-row>
+        <mm-divider />
+        <mm-row v-for="(discount, index) in purchaseSummary.discounts" :key="index">
+          <mm-col align="center">
+            <mm-text>{{ discount.description }}</mm-text>
+          </mm-col>
+          <mm-col align="center">
+            <mm-text>{{ discount.numberOfItemsWithDiscount }}</mm-text>
+          </mm-col>
+          <mm-col align="right">
+            <mm-currency-highlight with-symbol :value="discount.discountValue" />
+          </mm-col>
+        </mm-row>
+        <mm-divider />
+        <mm-row>
+          <mm-col align="right">
+            <mm-text>Total da compra: </mm-text>
+            <mm-currency-highlight with-symbol :value="purchaseSummary.purchaseValue" />
+          </mm-col>
+        </mm-row>
+      </template>
+    </mm-col>
+  </mm-row>
 </template>
 
 <script>
@@ -64,12 +72,10 @@ import MmDivider from '../../../components/divider';
 import MmText from '../../../components/text';
 import MmCurrencyHighlight from '../../../components/currency-highlight';
 import { calculateConsultsPurchasePrice } from '../purchase-consults-lib';
-import MmParagraph from '../../../components/paragraph';
 
 export default {
   name: 'PurchasesConsultsSummary',
   components: {
-    MmParagraph,
     MmCurrencyHighlight,
     MmText,
     MmDivider,

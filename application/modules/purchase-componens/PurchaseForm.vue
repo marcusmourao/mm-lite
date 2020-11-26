@@ -33,7 +33,7 @@
         </mm-field>
       </mm-col>
     </mm-row>
-    <mm-row justify="space-between">
+    <mm-row vertical-offset="medium" justify="space-between">
       <mm-col auto>
         <mm-button @click="cancel">
           Cancelar

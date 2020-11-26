@@ -39,10 +39,7 @@ class Money {
 
   toFormat({ withSymbol } = {}) {
     const mask = withSymbol ? '$0,0.00' : '0,0.00';
-    return this.money.toFormat(mask)
-      .replace(/\./g, 'aux')
-      .replace(/,/g, '.')
-      .replace(/aux/g, ',');
+    return this.money.toFormat(mask);
   }
 }
 

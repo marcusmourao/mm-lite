@@ -6,8 +6,8 @@ const MAJOR_DISCOUNT_LIMIT = 1000;
 const MINOR_DISCOUNT_LIMIT = MAJOR_DISCOUNT_LIMIT + 1000;
 const DISCOUNT_PER_UNIT_ON_MAJOR_DISCOUNT = 0.15;
 const DISCOUNT_PER_UNIT_ON_MINOR_DISCOUNT = 0.08;
-const MAJOR_DISCOUNT_DESCRIPTION = 'R$ 0.09/unidade nas primeiras 1.000 consultas.';
-const MINOR_DISCOUNT_DESCRIPTION = 'R$ 0.16/unidade nas primeiras 1.000 consultas.';
+const MAJOR_DISCOUNT_DESCRIPTION = 'R$ 0.09/uni nas primeiras 1.000 consultas.';
+const MINOR_DISCOUNT_DESCRIPTION = 'R$ 0.16/uni nas primeiras 1.000 consultas.';
 
 async function isMajorDiscountApplicable() {
   const totalOfConsults = await getTotalNumberOfConsults();

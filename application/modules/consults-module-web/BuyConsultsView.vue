@@ -54,6 +54,7 @@ export default {
     },
     onCancel() {
       this.numberOfConsults = null;
+      this.numberOfConsultsWanted = 1;
     },
     purchaseConsults({
       name,

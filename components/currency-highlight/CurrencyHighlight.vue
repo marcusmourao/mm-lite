@@ -1,13 +1,17 @@
 <template>
-  <mm-text v-if="withSymbol">
-    R$
-    <mm-text>
+  <span class="mm-currency-highlight">
+    <mm-text
+      v-if="withSymbol"
+    >
+      R$
+      <mm-text class="mm-currency-highlight__value">
+        {{ currencyValueFormatted }}
+      </mm-text>
+    </mm-text>
+    <mm-text v-else class="mm-currency-highlight__value">
       {{ currencyValueFormatted }}
     </mm-text>
-  </mm-text>
-  <mm-text v-else>
-    {{ currencyValueFormatted }}
-  </mm-text>
+  </span>
 </template>
 
 <script>

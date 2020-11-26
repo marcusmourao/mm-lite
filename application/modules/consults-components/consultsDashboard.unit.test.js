@@ -37,17 +37,6 @@ describe('ConsultsDashboard', () => {
     expect(availableConsultsHeading.isVisible()).toBe(true);
   });
 
-  it('should render render used consults title', () => {
-    const wrapper = shallowMountComponent({
-      availableConsultsCount: 10,
-      usedConsultsCount: 60,
-    });
-
-    const usedConsultsHeading = findHeadingByText(wrapper, 'Consultas realizadas');
-
-    expect(usedConsultsHeading.isVisible()).toBe(true);
-  });
-
   it('should render button to redirect to buy consults view', () => {
     const wrapper = shallowMountComponent({
       availableConsultsCount: 10,
