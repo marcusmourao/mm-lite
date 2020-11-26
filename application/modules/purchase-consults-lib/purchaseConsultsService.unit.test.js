@@ -1,9 +1,16 @@
 import { calculatePurchasePrice, purchaseItem } from '../../../api/purchases/actions';
 import { addConsults } from '../../../api/consults/actions';
-import { purchaseConsults, calculateConsultsPurchasePrice } from '.';
+import { getProductById } from '../../../api/products/actions';
+import { purchaseConsults, calculateConsultsPurchasePrice, getConsultProduct } from '.';
 
 function getNumberOfItemsMock() {
   return 10;
+}
+
+function getProductMock() {
+  return {
+    mock: true,
+  };
 }
 
 function getPurchaseMock() {
@@ -23,6 +30,7 @@ function getPurchasePriceMock() {
 
 jest.mock('../../../api/purchases/actions');
 jest.mock('../../../api/consults/actions');
+jest.mock('../../../api/products/actions');
 
 describe('purchaseConsultsService', () => {
   it('should calculate purchase price', async () => {
@@ -48,5 +56,15 @@ describe('purchaseConsultsService', () => {
       ...getPurchaseMock(),
     });
     expect(addConsults).toHaveBeenCalledWith(getNumberOfItemsMock());
+  });
+
+  it('should get consult product', async () => {
+    getProductById.mockReturnValue(getProductMock());
+
+    const consult = await getConsultProduct();
+
+    expect(consult).toEqual(getProductMock());
+    expect(getProductById).toHaveBeenCalledTimes(1);
+    expect(getProductById).toHaveBeenCalledWith('CONSULT');
   });
 });
